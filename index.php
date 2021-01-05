@@ -95,20 +95,22 @@ $distribs = $queryDistrib->fetchAll(PDO::FETCH_OBJ);
         <!--Filtre film-->
       </div>
       <div class="row">
-        <!--Resultat recherche-->
-        <div class="row">
+        <!--affichage avant resulat recherche-->
+        <div class="row result">
           <div class="col">
             <h4>Résultat de votre recherche :</h4>
             <P>nombre de résultat trouver :</p>
           </div>
-          <div class="col">
+          <div class="col-3 pafi">
+          <label for="pagination">nombre de film à afficher :</label>
             <select name="pagination" id="pagination">
-              <?php for ($i = 5; $i <= 50; $i + 5):?>
+              <?php for ($i = 5; $i <= 50; $i++): $i =$i + 4;?>
                   <option value="<?= $i;?>"><?= $i;?></option>
-             <?php endfor;?>
+             <?php endfor?>
             </select>
           </div>
         </div>
+        <!-- end affichage avant resulat recherche-->
       </div>
 
 
