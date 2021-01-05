@@ -67,7 +67,7 @@ $distribs = $queryDistrib->fetchAll(PDO::FETCH_OBJ);
       </div>
       <!--end menu Lateral-->
 
-    <div class="col-10">
+    <div class="col-11">
       <!--Contenus central-->
       <div class="row">
         <!--Filtre film-->
@@ -77,19 +77,38 @@ $distribs = $queryDistrib->fetchAll(PDO::FETCH_OBJ);
            <option value="default">Genre</option>
              <?php foreach($genres as $genre): ?>
                 <option value="<?= $genre->id_genre?>"><?= $genre->nom?></option>
-             <?php endforeach ?>
+             <?php endforeach ;?>
             </select>
             <select name="distrib" id="distrib_select">
            <option value="default">Distribution</option>
              <?php foreach($distribs as $distrib): ?>
                 <option value="<?= $distrib->id_distrib?>"><?= $distrib->nom?></option>
-             <?php endforeach ?>
+             <?php endforeach ;?>
             </select>
             
               <label for="date_p">date de production</label>
             <input type="date" name="date_projection" id="date_p">
+            
+
+         <input type="submit" value="Rechercher un film">
        </form>
         <!--Filtre film-->
+      </div>
+      <div class="row">
+        <!--Resultat recherche-->
+        <div class="row">
+          <div class="col">
+            <h4>Résultat de votre recherche :</h4>
+            <P>nombre de résultat trouver :</p>
+          </div>
+          <div class="col">
+            <select name="pagination" id="pagination">
+              <?php for ($i = 5; $i <= 50; $i + 5):?>
+                  <option value="<?= $i;?>"><?= $i;?></option>
+             <?php endfor;?>
+            </select>
+          </div>
+        </div>
       </div>
 
 
