@@ -1,5 +1,6 @@
 <?php
 require 'traitement/dbconnect.php';
+require 'traitement/filtre_film.php';
 $queryGenre = $db->query('SELECT * from genre');
 $genres = $queryGenre->fetchAll(PDO::FETCH_OBJ);
 $queryDistrib = $db->query('SELECT * from distrib');
@@ -71,16 +72,16 @@ $distribs = $queryDistrib->fetchAll(PDO::FETCH_OBJ);
       <!--Contenus central-->
       <div class="row">
         <!--Filtre film-->
-        <form>
-           <input type="text" placeholder="nom du film...">
+        <form action="index.php" method="post">
+           <input type="text" placeholder="nom du film..." value="" name="nom">
            <select name="genre" id="genre_select">
-           <option value="default">Genre</option>
+           <option value="">Genre</option>
              <?php foreach($genres as $genre): ?>
                 <option value="<?= $genre->id_genre?>"><?= $genre->nom?></option>
              <?php endforeach ;?>
             </select>
             <select name="distrib" id="distrib_select">
-           <option value="default">Distribution</option>
+           <option value="">Distribution</option>
              <?php foreach($distribs as $distrib): ?>
                 <option value="<?= $distrib->id_distrib?>"><?= $distrib->nom?></option>
              <?php endforeach ;?>
@@ -99,7 +100,7 @@ $distribs = $queryDistrib->fetchAll(PDO::FETCH_OBJ);
         <div class="row result">
           <div class="col">
             <h4>Résultat de votre recherche :</h4>
-            <P>nombre de résultat trouver :</p>
+            <P>nombre de résultat trouver : <?php if(isset($filmtrouver)){echo count($filmtrouver);}?></p>
           </div>
           <div class="col-3 pafi">
           <label for="pagination">nombre de film à afficher :</label>
@@ -114,7 +115,21 @@ $distribs = $queryDistrib->fetchAll(PDO::FETCH_OBJ);
       </div>
 
 
-
+     <?php if (isset($filmtrouver)):foreach($filmtrouver as $film):?>
+      
+          <div class="row">
+            <div class="col">
+              <p>Titre : <strong><?= $film->titre;?></strong></p>
+              <p>Genre : <?= $film->genre;?></p>
+              <p>Discributeur : <?= $film->distrib;?></p>
+              <a href=<?="fiche_film.php?id=".$film->id_film;?>>Avoir plus de détaille</a>
+            </div>
+            <div class="col">
+              <h6>Résumer :</h6>
+              <p><?= $film->resum;?></p>
+            </div>
+          </div>
+      <?php endforeach; endif ;?>
     </div>
     </div>
 
