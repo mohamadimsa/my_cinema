@@ -2,11 +2,16 @@ body{
     padding: 0;
     margin: 0;
 }
+.container-fluid{
+    padding: 0;
+    margin: 0;
+}
 /*
 **         header
 */
 header{
     background-color: #A62934;
+    width: 100%;
 }
 
 .logo{
@@ -35,9 +40,7 @@ header{
 /*
 **         Ccontenaire central
 */
-.contennaire_central{
-    display: flex;
-}
+
 .recherche input{
     width: 160px;
     height: 34px;

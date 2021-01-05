@@ -1,24 +1,18 @@
-<!doctype html>
-<html lang="fr">
-
-<head>
-  <meta charset="utf-8">
-  <title>myCinema</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
+<div class="container-fluid">
   <!--Header-->
+  <div class="row">
+
   <header>
     <div class="logo">
       <img src="assets/logo.svg" alt="logo my cinema">
     </div>
   </header>
+  </div>
   <!--end Header-->
 
 
-  <div class="contennaire_central">
-
+  <div class="row">
+     <div class="col">
     <!--menu Lateral-->
     <div class="menu_lateral">
       <div class="lien_film">
@@ -46,6 +40,7 @@
         </a>
       </div>
     </div>
+</div>
     <!--end menu Lateral-->
 
     <!--Contenus central-->
@@ -54,12 +49,27 @@
        <form>
          <div class="recherche">
            <input type="text" placeholder="nom du film...">
+           <select name="genre" id="genre_select">
+           <option value="default">Genre</option>
+             <?php foreach($genres as $genre): ?>
+                <option value="<?= $genre->id_genre?>"><?= $genre->nom?></option>
+             <?php endforeach ?>
+            </select>
+            <select name="distrib" id="distrib_select">
+           <option value="default">Distribution</option>
+             <?php foreach($distribs as $distrib): ?>
+                <option value="<?= $distrib->id_distrib?>"><?= $distrib->nom?></option>
+             <?php endforeach ?>
+            </select>
+            <div class="date_prod">
+              <label for="date_p">date de production</label>
+            <input type="date" name="date_projection" id="date_p">
+             </div>
          </div>
        </form>
      </div>
    </div>
 
   </div>
-</body>
-
-</html>
+             </div>
+             
