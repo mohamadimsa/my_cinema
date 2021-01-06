@@ -88,7 +88,7 @@ $distribs = $queryDistrib->fetchAll(PDO::FETCH_OBJ);
             </select>
             
               <label for="date_p">date de production</label>
-            <input type="date" name="date_projection" id="date_p">
+            <input type="date" name="date_projection" id="date_p" value="">
             
 
          <input type="submit" value="Rechercher un film">
@@ -114,10 +114,10 @@ $distribs = $queryDistrib->fetchAll(PDO::FETCH_OBJ);
         <!-- end affichage avant resulat recherche-->
       </div>
 
-
+          <!--resulat recherche-->
      <?php if (isset($filmtrouver)):foreach($filmtrouver as $film):?>
       
-          <div class="row">
+          <div class="row resultat-recherhe">
             <div class="col">
               <p>Titre : <strong><?= $film->titre;?></strong></p>
               <p>Genre : <?= $film->genre;?></p>
@@ -130,7 +130,13 @@ $distribs = $queryDistrib->fetchAll(PDO::FETCH_OBJ);
             </div>
           </div>
       <?php endforeach; endif ;?>
+      <!-- end resulat recherche-->
     </div>
+      <!--navigation pagination-->
+     <div class="row">
+
+     </div>
+     <!-- end navigation pagination-->
     </div>
 
 </div>
