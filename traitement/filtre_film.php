@@ -1,13 +1,13 @@
 <?php
 
-if(isset($_POST["nom"])){
+if(isset($_POST["nom"] )){
+    
     $titre = "'".$_POST["nom"]."%'";
-$filmGenre = $db->prepare("SELECT id_film, titre, genre.nom AS genre, distrib.nom as distrib, resum from film left join genre on film.id_genre = genre.id_genre LEFT JOIN distrib ON film.id_distrib = distrib.id_distrib where genre.id_genre = :genre ORDER BY genre.nom ASC");
+$filmGenre = $db->prepare("SELECT id_film, titre, genre.nom AS genre, distrib.nom as distrib, resum from film left join genre on film.id_genre = genre.id_genre LEFT JOIN distrib ON film.id_distrib = distrib.id_distrib where genre.id_genre = :genre ORDER BY genre.nom ");
 $filmGenre->bindParam(':genre',$_POST["genre"]);
 $filmDistrib = $db->prepare("SELECT id_film, titre, genre.nom AS genre, distrib.nom as distrib, resum from film left join genre on film.id_genre = genre.id_genre LEFT JOIN distrib ON film.id_distrib = distrib.id_distrib where film.id_distrib = :distrib");
 $filmDistrib->bindParam(':distrib',$_POST["distrib"]);
 $filmNom = $db->prepare("SELECT id_film, titre, genre.nom AS genre, distrib.nom as distrib, resum from film left join genre on film.id_genre = genre.id_genre LEFT JOIN distrib ON film.id_distrib = distrib.id_distrib where film.titre LIKE $titre");
-
 $nom_genre = $db->prepare("SELECT id_film, titre, genre.nom AS genre, distrib.nom as distrib, resum from film left join genre on film.id_genre = genre.id_genre LEFT JOIN distrib ON film.id_distrib = distrib.id_distrib where film.titre LIKE $titre AND film.id_genre = :genre");
 $nom_genre->bindParam(':genre',$_POST["genre"]);
 $nom_distrib = $db->prepare("SELECT id_film, titre, genre.nom AS genre, distrib.nom as distrib, resum from film left join genre on film.id_genre = genre.id_genre LEFT JOIN distrib ON film.id_distrib = distrib.id_distrib where film.titre LIKE $titre AND film.id_distrib = :distrib");
@@ -68,5 +68,15 @@ elseif($_POST["nom"] != "" && $_POST["genre"] == "" && $_POST["date_projection"]
     }
  }
 
+}
+
+
+if (isset($filmtrouver)) {
+  
+    $nbFilms = count($filmtrouver);
+
+    $parPage = 10 ;
+
+    $page = ceil($nbFilms /$parPage);
 }
 ?>

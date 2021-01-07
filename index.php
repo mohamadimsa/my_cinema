@@ -90,7 +90,14 @@ $distribs = $queryDistrib->fetchAll(PDO::FETCH_OBJ);
               <label for="date_p">date de production</label>
             <input type="date" name="date_projection" id="date_p" value="">
             
-
+            
+          <label for="pagination">film/page :</label>
+            <select name="pagination" id="pagination">
+            <option value="10">10</option>
+              <?php for ($i = 5; $i <= 50; $i++): $i =$i + 4;?>
+                  <option value="<?= $i;?>"><?= $i;?></option>
+             <?php endfor?>
+            </select>
          <input type="submit" value="Rechercher un film">
        </form>
         <!--Filtre film-->
@@ -102,14 +109,6 @@ $distribs = $queryDistrib->fetchAll(PDO::FETCH_OBJ);
             <h4>Résultat de votre recherche :</h4>
             <P>nombre de résultat trouver : <?php if(isset($filmtrouver)){echo count($filmtrouver);}?></p>
           </div>
-          <div class="col-3 pafi">
-          <label for="pagination">nombre de film à afficher :</label>
-            <select name="pagination" id="pagination">
-              <?php for ($i = 5; $i <= 50; $i++): $i =$i + 4;?>
-                  <option value="<?= $i;?>"><?= $i;?></option>
-             <?php endfor?>
-            </select>
-          </div>
         </div>
         <!-- end affichage avant resulat recherche-->
       </div>
@@ -118,13 +117,13 @@ $distribs = $queryDistrib->fetchAll(PDO::FETCH_OBJ);
      <?php if (isset($filmtrouver)):foreach($filmtrouver as $film):?>
       
           <div class="row resultat-recherhe">
-            <div class="col">
+            <div class="col-3">
               <p>Titre : <strong><?= $film->titre;?></strong></p>
               <p>Genre : <?= $film->genre;?></p>
               <p>Discributeur : <?= $film->distrib;?></p>
-              <a href=<?="fiche_film.php?id=".$film->id_film;?>>Avoir plus de détaille</a>
+              <a href=<?="fiche_film.php?id=".$film->id_film;?>>Avoir plus de détails</a>
             </div>
-            <div class="col">
+            <div class="col-5">
               <h6>Résumer :</h6>
               <p><?= $film->resum;?></p>
             </div>
@@ -141,7 +140,7 @@ $distribs = $queryDistrib->fetchAll(PDO::FETCH_OBJ);
 
 </div>
 
-
+<script src="script.js"></script>
 </body>
 
 </html>
