@@ -10,7 +10,7 @@ require_once 'hautPage.php';
            <input type="text" placeholder="nom du client" value="" name="nom">
            <input type="text" placeholder="prenom du client" value="" name="prenom">
            <input type="text" placeholder="nom de la ville" value="" name="nomville">
-           <input type="number"  name="code postale" value="" placeholder="code postal" min="01260"> 
+           <input type="email"  name="email" value="" placeholder="adresse email client" > 
            <label for="membre">&nbsp &nbsp membre</label>
            <input type="checkbox" id="membre" name="membre" value="1">        
           <label for="pagination"> &nbsp &nbsp page :</label>
