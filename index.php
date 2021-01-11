@@ -44,9 +44,9 @@ $distribs = $queryDistrib->fetchAll(PDO::FETCH_OBJ);
             </div>
 
             <div class="lien_membre">
-              <a href="#">
+              <a href="pages/membre.php">
                 <img class="ico2" src="assets/icomembre.png" alt="logo my cinema">
-                <p>Membre</p>
+                <p>Client</p>
               </a>
             </div>
 

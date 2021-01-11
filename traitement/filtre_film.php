@@ -2,7 +2,7 @@
 
 if(isset($_POST["nom"] )){
     
-    $titre = "'".$_POST["nom"]."%'";
+$titre = "'".$_POST["nom"]."%'";
 $filmGenre = $db->prepare("SELECT id_film, titre, genre.nom AS genre, distrib.nom as distrib, resum from film left join genre on film.id_genre = genre.id_genre LEFT JOIN distrib ON film.id_distrib = distrib.id_distrib where genre.id_genre = :genre ORDER BY genre.nom ");
 $filmGenre->bindParam(':genre',$_POST["genre"]);
 $filmDistrib = $db->prepare("SELECT id_film, titre, genre.nom AS genre, distrib.nom as distrib, resum from film left join genre on film.id_genre = genre.id_genre LEFT JOIN distrib ON film.id_distrib = distrib.id_distrib where film.id_distrib = :distrib");
