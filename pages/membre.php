@@ -42,7 +42,7 @@ require_once 'hautPage.php';
           <p>nom: <strong><?= $client->nom;?></strong></p>
           <p>prenom : <?= $client->prenom;?></p>
           <p>email : <?= $client->email;?></p>
-          <a href=<?="fiche_film.php?id=".$client->id_perso;?>>Accéder à la fiche du client</a>
+          <a href=<?="fiche_client.php?id=".$client->id_perso;?>>Accéder à la fiche du client</a>
         </div>
         <div class="col-5">
           <p>ville : <?= $client->ville;?></p>
