@@ -1,7 +1,6 @@
 <?php
 
 require_once '../traitement/filtre_client.php'; 
-var_dump($_POST);
 require_once 'hautPage.php';
 ?>
 <div class="col-11">

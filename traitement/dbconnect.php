@@ -2,7 +2,7 @@
 
 try {
     $db = new PDO('mysql:host=localhost; dbname=cinema', 'mohamadi','mohamadi');
-} catch (execeptions $e) {
+} catch (PDOException $e) {
     die('Erreur'.$e->getMessage());
 }
 ?>
