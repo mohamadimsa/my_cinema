@@ -12,7 +12,7 @@ require_once 'hautPage.php';
            <input type="email"  name="email" value="" placeholder="adresse email client" > 
            <label for="membre">&nbsp &nbsp membre</label>
            <input type="checkbox" id="membre" name="membre" value="1">        
-          <label for="pagination"> &nbsp &nbsp page :</label>
+          <label for="pagination">&nbsp &nbsp page :</label>
             <select name="pagination" id="pagination">
             <option value="10">10</option>
               <?php for ($i = 5; $i <= 50; $i++): $i =$i + 4;?>
@@ -35,7 +35,6 @@ require_once 'hautPage.php';
 
           <!--resulat recherche-->
      <?php if (isset($clientTrouver)):foreach($clientTrouver as $client):?>
-      
       <div class="row resultat-recherhe">
         <div class="col-3">
           <p>nom: <strong><?= $client->nom;?></strong></p>
@@ -52,7 +51,5 @@ require_once 'hautPage.php';
   <?php endforeach; endif ;?>
   <!-- end resulat recherche-->
 </div>
-
-
 
 <?php require_once 'basPage.php';?>

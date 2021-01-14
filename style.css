@@ -54,3 +54,10 @@ header{
 .info_general{
     padding-top: 3em;
 }
+p{
+    padding: 0;
+    margin: 0;
+}
+.abo{
+    padding-top: 4em;
+}

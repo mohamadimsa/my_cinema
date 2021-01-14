@@ -9,7 +9,7 @@ if (isset($_POST["nom"])) {
     $email = $_POST["email"];
 
     $clientPrenoms = $db->prepare("SELECT * FROM fiche_personne WHERE prenom LIKE $prenom ORDER BY nom ASC");
-    $clientPrenoms_noms = $db->prepare("SELECT * FROM fiche_personne WHERE nom LIKE $nom and  prenom LIKE $prenom ORDER BY nom ASC");
+    $clientPrenoms_noms = $db->prepare("SELECT  *  FROM fiche_personne WHERE nom LIKE $nom and  prenom LIKE $prenom ORDER BY nom ASC");
     $clientPrenoms_ville = $db->prepare("SELECT * FROM fiche_personne WHERE prenom LIKE $prenom and  ville LIKE $ville ORDER BY nom ASC");
     $clientPrenoms_email = $db->prepare("SELECT * FROM fiche_personne WHERE prenom LIKE $prenom and  email = '$email' ORDER BY nom ASC ");
     $clientNoms_ville = $db->prepare("SELECT * FROM fiche_personne WHERE nom LIKE $nom and  ville LIKE $ville ORDER BY nom ASC");
