@@ -121,7 +121,7 @@ $distribs = $queryDistrib->fetchAll(PDO::FETCH_OBJ);
               <p>Titre : <strong><?= $film->titre;?></strong></p>
               <p>Genre : <?= $film->genre;?></p>
               <p>Discributeur : <?= $film->distrib;?></p>
-              <a href=<?="fiche_film.php?id=".$film->id_film;?>>Avoir plus de détails</a>
+              <a href=<?="pages/fiche_film.php?id=".$film->id_film;?>>Avoir plus de détails</a>
             </div>
             <div class="col-5">
               <h6>Résumer :</h6>
