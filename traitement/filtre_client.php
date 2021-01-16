@@ -7,7 +7,7 @@ if (isset($_POST["nom"])) {
     $prenom = "'" . $_POST["prenom"] . "%'";
     $ville = "'" . $_POST["nomville"] . "%'";
     $email = $_POST["email"];
-
+    $email1 = "'".$_POST["email"]."'";
     $clientPrenoms = $db->prepare("SELECT * FROM fiche_personne WHERE prenom LIKE $prenom ORDER BY nom ASC");
     $clientPrenoms_noms = $db->prepare("SELECT  *  FROM fiche_personne WHERE nom LIKE $nom and  prenom LIKE $prenom ORDER BY nom ASC");
     $clientPrenoms_ville = $db->prepare("SELECT * FROM fiche_personne WHERE prenom LIKE $prenom and  ville LIKE $ville ORDER BY nom ASC");
@@ -15,7 +15,7 @@ if (isset($_POST["nom"])) {
     $clientNoms_ville = $db->prepare("SELECT * FROM fiche_personne WHERE nom LIKE $nom and  ville LIKE $ville ORDER BY nom ASC");
     $clientNoms = $db->prepare("SELECT * FROM fiche_personne WHERE nom LIKE $nom ORDER BY nom ASC");
     $clientNoms_email = $db->prepare("SELECT * FROM fiche_personne WHERE nom LIKE $nom and  email = '$email' ORDER BY nom ASC ");
-
+    $clientEmail = $db->prepare("SELECT * FROM fiche_personne WHERE email LIKE $email1 ORDER BY nom ASC ");
     if ($_POST["nom"] != "" && $_POST["prenom"] == "" && $_POST["nomville"] == "" && $_POST["email"] == "" && !isset($_POST["membre"])) {
         if ($clientNoms->execute()) {
             $clientTrouver = $clientNoms->fetchAll(PDO::FETCH_OBJ);
@@ -49,6 +49,11 @@ if (isset($_POST["nom"])) {
     elseif($_POST["prenom"] == "" && $_POST["nom"] != "" && $_POST["nomville"] == "" && $_POST["email"] != "" && !isset($_POST["membre"])) {
         if ($clientNoms_email->execute()) {
             $clientTrouver = $clientNoms_email->fetchAll(PDO::FETCH_OBJ);
+        }
+    }
+    elseif($_POST["prenom"] == "" && $_POST["nom"] == "" && $_POST["nomville"] == "" && $_POST["email"] != "" && !isset($_POST["membre"])) {
+        if ($clientEmail->execute()) {
+            $clientTrouver = $clientEmail->fetchAll(PDO::FETCH_OBJ);
         }
     }
     

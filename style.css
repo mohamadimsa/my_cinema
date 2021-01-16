@@ -61,3 +61,11 @@ p{
 .abo{
     padding-top: 4em;
 }
+
+table, th, td {
+    border: 1px solid black;
+  }
+
+.historique{
+    display: block;
+}
