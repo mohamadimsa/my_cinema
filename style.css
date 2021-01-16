@@ -68,4 +68,8 @@ table, th, td {
 
 .historique{
     display: block;
+    
+}
+.image_film{
+    width: 209px;
 }
