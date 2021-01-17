@@ -5,7 +5,8 @@ require_once 'hautPage.php';
 ?>
 <div class="col-11">
        <!--Filtre membre-->
-       <form action="membre.php" method="post">
+       <?php if(isset($_GET["histo"])){$histo =$_GET["histo"];}?>
+       <form action="<?php if(!isset($histo)){echo "membre.php";}else{echo "membre.php?histo=".$histo;} ?>" method="post">
            <input type="text" placeholder="nom du client" value="" name="nom">
            <input type="text" placeholder="prenom du client" value="" name="prenom">
            <input type="text" placeholder="nom de la ville" value="" name="nomville">
@@ -40,7 +41,10 @@ require_once 'hautPage.php';
           <p>nom: <strong><?= $client->nom;?></strong></p>
           <p>prenom : <?= $client->prenom;?></p>
           <p>email : <?= $client->email;?></p>
-          <a href=<?="fiche_client.php?id=".$client->id_perso;?>>Accéder à la fiche du client</a>
+          <?php if(isset($_GET["histo"])){echo "
+            <a href='fiche_client.php?id=$client->id_perso&histo=$histo'>Accéder à la fiche du client</a>
+            ";}else{echo "<a href='fiche_client.php?id=$client->id_perso>Accéder à la fiche du client</a>";}?>
+        
         </div>
         <div class="col-5">
           <p>ville : <?= $client->ville;?></p>

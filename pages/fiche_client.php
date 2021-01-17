@@ -34,6 +34,9 @@ require_once 'hautPage.php';
                <p>dernier film vus : <?= $dernierflim->titre . ', le ' . $date_dernierfilm->format('d-m-Y'); ?> </p>
           </div>
      </div>
+     <?php if(isset($_GET["histo"])):?>
+     <div class="row"><a href="<?= "ajoutHistorique.php?id_film=".$historique."&id_membre=".$id_membre?>">Ajouter le film <?= $titreFilm->titre?> a l'historique du client </a></div>
+     <?php endif;?>
      <div class="row abo historique">
 
            <div class="row"><h4>historique des film vus par le client</h4></div>
@@ -46,16 +49,14 @@ require_once 'hautPage.php';
           </tr>
            <?php foreach($historiqueMembre as $historique):?>
            <tr>
-           <td><?= $historique->titre ?></td>
+           <td><a href="<?= "fiche_film.php?id=".$historique->id_film?>"><?=$historique->titre ?></a></td>
            <?php $date_historique = new DATETime($historique->date);?>
            <td><?= $date_historique->format('d-m-Y')?></td>
+           <td><a href="<?= "ajoutAvis.php?id_film=".$historique->id_film."&id_membre=".$id_membre?>">ajouter un avis</a></td>
            </tr>
            <?php endforeach ; ?>
            
           </table>
-         </div>
-         <div class="col-6">
-            
          </div>
         </div>
      </div>

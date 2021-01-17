@@ -67,6 +67,9 @@ elseif($_POST["nom"] != "" && $_POST["genre"] == "" && $_POST["date_projection"]
         
     }
  }
+ elseif($_POST["genre"] == "" && $_POST["distrib"] == "" && $_POST["date_projection"] != "" && $_POST["nom"] == "" ) {
+    
+ }
 
 }
 

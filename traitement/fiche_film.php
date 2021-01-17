@@ -44,4 +44,12 @@ curl_setopt($curl,CURLOPT_RETURNTRANSFER,true);
 }
 curl_close($curl);
 }
+
+ $avisFilm = $db->prepare("SELECT * FROM historique_membre Where id_film=:id and avis IS NOT NULL");
+ $avisFilm->bindValue(":id",$id_cli,PDO::PARAM_INT);
+
+ if ($avisFilm->execute()) {
+    $avistrouver = $avisFilm->fetchAll(PDO::FETCH_OBJ);
+ }
+
 }

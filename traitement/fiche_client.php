@@ -26,7 +26,15 @@ $listAbos = $db->prepare("SELECT * FROM abonnement");
 $listAbos->execute();
 $listAboTrouver = $listAbos->fetchAll(PDO::FETCH_OBJ);
 $id_membre = $infoTrouver->id_membre;
-$listHistorique = $db->prepare("SELECT film.titre, historique_membre.date, film.id_film  FROM historique_membre  LEFT JOIN film  ON film.id_film = historique_membre.id_film WHERE id_membre =:id_membre ORDER BY historique_membre.date ASC");
+$listHistorique = $db->prepare("SELECT film.titre, historique_membre.date, film.id_film  FROM historique_membre  LEFT JOIN film  ON film.id_film = historique_membre.id_film WHERE id_membre =:id_membre ORDER BY historique_membre.date DESC");
 $listHistorique->bindValue(":id_membre",$id_membre,PDO::PARAM_INT);
 $listHistorique->execute();
 $historiqueMembre = $listHistorique->fetchAll(PDO::FETCH_OBJ);
+$nomfilmAjouter = $db->prepare("SELECT titre, id_film FROM film where id_film=:id_film");
+if (isset($_GET["histo"])) {
+    $historique=intval($_GET["histo"]);
+    $nomfilmAjouter->bindValue(':id_film',$historique,PDO::PARAM_INT);
+    if ($nomfilmAjouter->execute()) {
+          $titreFilm = $nomfilmAjouter->fetch(PDO::FETCH_OBJ);
+    }
+}
