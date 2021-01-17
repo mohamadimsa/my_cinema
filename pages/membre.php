@@ -41,9 +41,12 @@ require_once 'hautPage.php';
           <p>nom: <strong><?= $client->nom;?></strong></p>
           <p>prenom : <?= $client->prenom;?></p>
           <p>email : <?= $client->email;?></p>
-          <?php if(isset($_GET["histo"])){echo "
-            <a href='fiche_client.php?id=$client->id_perso&histo=$histo'>Accéder à la fiche du client</a>
-            ";}else{echo "<a href='fiche_client.php?id=$client->id_perso>Accéder à la fiche du client</a>";}?>
+            
+          <?php if(isset($_GET["histo"])):?>
+            <a href='<?="fiche_client.php?id=$client->id_perso&histo=$histo"?>'>Accéder à la fiche du client</a>
+            <?php else:?>
+              <a href='<?="fiche_client.php?id=$client->id_perso"?>'>Accéder à la fiche du client</a>
+              <?php endif;?>
         
         </div>
         <div class="col-5">
