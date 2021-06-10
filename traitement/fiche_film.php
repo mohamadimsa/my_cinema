@@ -1,4 +1,7 @@
 <?php
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
+
 require_once 'dbconnect.php';
 $data = "";
 if (isset($_GET["id"])) {
@@ -20,17 +23,19 @@ $recherche=$details->titre;
 $recherche=trim($recherche);
 $recherche= rtrim($recherche);
 $recherche= str_replace(" ","_",$recherche);
- 
-$curl = curl_init();
 $url = "http://www.omdbapi.com/?t=".$recherche."&apikey=26c135a9";
+/*$curl = curl_init();
+
 curl_setopt($curl, CURLOPT_URL, $url);
 curl_setopt($curl,CURLOPT_RETURNTRANSFER,true);
  
- $data = curl_exec($curl);
+ $data = curl_exec($curl);*/
+$data = false;
 
  if($data === false){
      
-    echo 'Erreur Curl : ' . curl_error($curl);
+   // echo 'Erreur Curl : ' . curl_error($curl);
+   $image = "../assets/default.jpg";
 
  }else{
     $data = json_decode($data);
@@ -42,7 +47,7 @@ curl_setopt($curl,CURLOPT_RETURNTRANSFER,true);
     }
      
 }
-curl_close($curl);
+//curl_close($curl);
 }
 
  $avisFilm = $db->prepare("SELECT * FROM historique_membre Where id_film=:id and avis IS NOT NULL");
