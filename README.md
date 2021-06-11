@@ -8,7 +8,7 @@ Lors de ce projet Je devais utiliser et maîtriser les outils suivants:
   
 # Réalisation
 
-À partir de la base de données MySQL fournie avec le sujet, Je devais  réaliser un site qui permettra d’interagir avec cette dernière. le but du projet est orienté PHP et MySQL. les pages devra être valide HTML5.
+À partir de la base de données MySQL fournie avec le sujet, Je devais  réaliser un site qui permettra d’interagir avec cette dernière. le but du projet est orienté PHP et MySQL. les pages devais être valide HTML5.
 
 ----------------
 
