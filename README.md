@@ -15,13 +15,13 @@ Lors de ce projet Je devais utiliser et maîtriser les outils suivants:
 ## Partie obligatoire
       
 j'ai créer un site permettant de gérer un cinéma. En essayant de me mettre en situation et imaginé  que je suis à la caisse du cinéma de ma ville. Ainsi le site  permet :
-    * De rechercher des films par genre ou par distributeur(en plus de la recherche par nom.).
-    * De rechercher un membre par son nom et/ou son prénom.
-    * D’ajouter, de supprimer, ou de modifier unabonnementà un client.
-    * D’afficher l’historiqued’un client (les films qu’il a vus).
-    * De pouvoir ajouter une entrée à cet historique (film vu par le membre aujourd’hui).
-    * D’ajouter un avis sur un film (avis qui sera ajouté à la tablehistorique-membre).
-    * De rechercher les films pardate de projection(“Quels films passent ce soir ? !”).
+    * De rechercher des films par genre ou par distributeur(en plus de la recherche par nom.)
+    * De rechercher un membre par son nom et/ou son prénom
+    * D’ajouter, de supprimer, ou de modifier unabonnementà un client
+    * D’afficher l’historiqued’un client (les films qu’il a vus)
+    * De pouvoir ajouter une entrée à cet historique (film vu par le membre aujourd’hui)
+    * D’ajouter un avis sur un film (avis qui sera ajouté à la tablehistorique-membre)
+    * De rechercher les films pardate de projection(“Quels films passent ce soir ? !”)
     
 ----------------
 
