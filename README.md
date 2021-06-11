@@ -31,5 +31,6 @@ j'ai était amenés à la faire évoluer, vous devais m'assurer qu’elle répon
 
 # Configuration et Instalation du site my_cinema
 
-  installer la bases de
+  *installer la bases de donnée
   ---------------
+  
