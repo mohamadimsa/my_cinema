@@ -30,7 +30,11 @@ j'ai créer un site permettant de gérer un cinéma. En essayant de me mettre en
 j'ai était amenés à la faire évoluer, vous devais m'assurer qu’elle répond toujours aux minimas cités dans la section précédente.réciées. j'ai était  amenés à créer de nouvelles tables etc...
 
 # Configuration et Instalation du site my_cinema
-
-  `installer la bases de donnée
+  ## installer la base de donnée
+  `installer la db ./cinema.sql`
+  ## configuré la connection à la base de donnée
+  modifier le fichier ./traitement/dbconnect.php 
+  
+   ` $db = new PDO('mysql:host=localhost; dbname=cinema', 'username','password');`
   
   
